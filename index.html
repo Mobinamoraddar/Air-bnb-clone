@@ -1,0 +1,2904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <link rel="icon" href="images/favicon.ico" type="image/icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="daterangepicker.css" />
+    <title>AirBnB</title>
+</head>
+
+<body>
+    <!-- Header  -->
+    <header>
+        <div></div>
+        <div class="nav-main-scroll" id="responsive-display">
+            <div class="nav-logo">
+                <!-- <img src="images/Airbnb_logo.svg" alt=""> -->
+                <!-- <img src="images/logoo.png" alt=""> -->
+                <svg class="logo-scroll" width="102" height="32" fill="rgb(255, 56, 92)" style="display:block">
+                    <path
+                        d="M29.24 22.68c-.16-.39-.31-.8-.47-1.15l-.74-1.67-.03-.03c-2.2-4.8-4.55-9.68-7.04-14.48l-.1-.2c-.25-.47-.5-.99-.76-1.47-.32-.57-.63-1.18-1.14-1.76a5.3 5.3 0 00-8.2 0c-.47.58-.82 1.19-1.14 1.76-.25.52-.5 1.03-.76 1.5l-.1.2c-2.45 4.8-4.84 9.68-7.04 14.48l-.06.06c-.22.52-.48 1.06-.73 1.64-.16.35-.32.73-.48 1.15a6.8 6.8 0 007.2 9.23 8.38 8.38 0 003.18-1.1c1.3-.73 2.55-1.79 3.95-3.32 1.4 1.53 2.68 2.59 3.95 3.33A8.38 8.38 0 0022.75 32a6.79 6.79 0 006.75-5.83 5.94 5.94 0 00-.26-3.5zm-14.36 1.66c-1.72-2.2-2.84-4.22-3.22-5.95a5.2 5.2 0 01-.1-1.96c.07-.51.26-.96.52-1.34.6-.87 1.65-1.41 2.8-1.41a3.3 3.3 0 012.8 1.4c.26.4.45.84.51 1.35.1.58.06 1.25-.1 1.96-.38 1.7-1.5 3.74-3.21 5.95zm12.74 1.48a4.76 4.76 0 01-2.9 3.75c-.76.32-1.6.41-2.42.32-.8-.1-1.6-.36-2.42-.84a15.64 15.64 0 01-3.63-3.1c2.1-2.6 3.37-4.97 3.85-7.08.23-1 .26-1.9.16-2.73a5.53 5.53 0 00-.86-2.2 5.36 5.36 0 00-4.49-2.28c-1.85 0-3.5.86-4.5 2.27a5.18 5.18 0 00-.85 2.21c-.13.84-.1 1.77.16 2.73.48 2.11 1.78 4.51 3.85 7.1a14.33 14.33 0 01-3.63 3.12c-.83.48-1.62.73-2.42.83a4.76 4.76 0 01-5.32-4.07c-.1-.8-.03-1.6.29-2.5.1-.32.25-.64.41-1.02.22-.52.48-1.06.73-1.6l.04-.07c2.16-4.77 4.52-9.64 6.97-14.41l.1-.2c.25-.48.5-.99.76-1.47.26-.51.54-1 .9-1.4a3.32 3.32 0 015.09 0c.35.4.64.89.9 1.4.25.48.5 1 .76 1.47l.1.2c2.44 4.77 4.8 9.64 7 14.41l.03.03c.26.52.48 1.1.73 1.6.16.39.32.7.42 1.03.19.9.29 1.7.19 2.5zM41.54 24.12a5.02 5.02 0 01-3.95-1.83 6.55 6.55 0 01-1.6-4.48 6.96 6.96 0 011.66-4.58 5.3 5.3 0 014.08-1.86 4.3 4.3 0 013.7 1.92l.1-1.57h2.92V23.8h-2.93l-.1-1.76a4.52 4.52 0 01-3.88 2.08zm.76-2.88c.58 0 1.09-.16 1.57-.45.44-.32.8-.74 1.08-1.25.25-.51.38-1.12.38-1.8a3.42 3.42 0 00-1.47-3.04 2.95 2.95 0 00-3.12 0c-.44.32-.8.74-1.08 1.25a4.01 4.01 0 00-.38 1.8 3.42 3.42 0 001.47 3.04c.47.29.98.45 1.55.45zM53.45 8.46c0 .35-.06.67-.22.93-.16.25-.38.48-.67.64-.29.16-.6.22-.92.22-.32 0-.64-.06-.93-.22a1.84 1.84 0 01-.67-.64 1.82 1.82 0 01-.22-.93c0-.36.07-.68.22-.93.16-.3.39-.48.67-.64.29-.16.6-.23.93-.23a1.84 1.84 0 011.6.86 2 2 0 01.21.94zm-3.4 15.3V11.7h3.18v12.08h-3.19zm11.68-8.9v.04c-.15-.07-.35-.1-.5-.13-.2-.04-.36-.04-.55-.04-.89 0-1.56.26-2 .8-.48.55-.7 1.32-.7 2.31v5.93h-3.19V11.69h2.93l.1 1.83c.32-.64.7-1.12 1.24-1.48a3.1 3.1 0 011.81-.5c.23 0 .45.02.64.06.1.03.16.03.22.06v3.2zm1.28 8.9V6.74h3.18v6.5c.45-.58.96-1.03 1.6-1.38a5.02 5.02 0 016.08 1.31 6.55 6.55 0 011.6 4.49 6.96 6.96 0 01-1.66 4.58 5.3 5.3 0 01-4.08 1.86 4.3 4.3 0 01-3.7-1.92l-.1 1.57-2.92.03zm6.15-2.52c.57 0 1.08-.16 1.56-.45.44-.32.8-.74 1.08-1.25.26-.51.38-1.12.38-1.8 0-.67-.12-1.28-.38-1.79a3.75 3.75 0 00-1.08-1.25 2.95 2.95 0 00-3.12 0c-.45.32-.8.74-1.09 1.25a4.01 4.01 0 00-.38 1.8 3.42 3.42 0 001.47 3.04c.47.29.98.45 1.56.45zm7.51 2.53V11.69h2.93l.1 1.57a3.96 3.96 0 013.54-1.89 4.1 4.1 0 013.82 2.44c.35.76.54 1.7.54 2.75v7.24h-3.19v-6.82c0-.84-.19-1.5-.57-1.99-.38-.48-.9-.74-1.56-.74-.48 0-.9.1-1.27.32-.35.23-.64.52-.86.93a2.7 2.7 0 00-.32 1.35v6.92h-3.16zm12.52 0V6.73h3.19v6.5a4.67 4.67 0 013.73-1.89 5.02 5.02 0 013.95 1.83 6.57 6.57 0 011.59 4.48 6.95 6.95 0 01-1.66 4.58 5.3 5.3 0 01-4.08 1.86 4.3 4.3 0 01-3.7-1.92l-.09 1.57-2.93.03zm6.18-2.53c.58 0 1.09-.16 1.56-.45.45-.32.8-.74 1.09-1.25.25-.51.38-1.12.38-1.8a3.42 3.42 0 00-1.47-3.04 2.95 2.95 0 00-3.12 0c-.44.32-.8.74-1.08 1.25a3.63 3.63 0 00-.38 1.8 3.42 3.42 0 001.47 3.04c.47.29.95.45 1.55.45z">
+                    </path>
+                </svg>
+            </div>
+            <div class="nav-texts-scroll none">
+                <div name="places-to-stay" class="nav-links nav-li1"><span>Places to stay</span></div>
+                <div name="expriences" class="nav-links nav-link-hover"><span>Experiences</span></div>
+                <div class="nav-links nav-link-hover2"><span>Online Experiences</span></div>
+            </div>
+            <div class="search-box-scroll">
+                <div class="search-box-text">Start your search</div>
+                <div class="search-box-icon">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                        style="display:block;fill:none;height:12px;width:12px;stroke:currentColor;stroke-width:5.333333333333333;overflow:visible"
+                        aria-hidden="true" role="presentation" focusable="false">
+                        <g fill="none">
+                            <path
+                                d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="nav-pannel">
+                <div class="nav-tx-scroll"><span>Become a host</span></div>
+                <div class="nav-la-scroll">
+                    <svg id="nav-la-img" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                        role="presentation" focusable="false"
+                        style="display: block; height: 16px; width: 16px; fill: currentcolor;">
+                        <path
+                            d="m8.002.25a7.77 7.77 0 0 1 7.748 7.776 7.75 7.75 0 0 1 -7.521 7.72l-.246.004a7.75 7.75 0 0 1 -7.73-7.513l-.003-.245a7.75 7.75 0 0 1 7.752-7.742zm1.949 8.5h-3.903c.155 2.897 1.176 5.343 1.886 5.493l.068.007c.68-.002 1.72-2.365 1.932-5.23zm4.255 0h-2.752c-.091 1.96-.53 3.783-1.188 5.076a6.257 6.257 0 0 0 3.905-4.829zm-9.661 0h-2.75a6.257 6.257 0 0 0 3.934 5.075c-.615-1.208-1.036-2.875-1.162-4.686l-.022-.39zm1.188-6.576-.115.046a6.257 6.257 0 0 0 -3.823 5.03h2.75c.085-1.83.471-3.54 1.059-4.81zm2.262-.424c-.702.002-1.784 2.512-1.947 5.5h3.904c-.156-2.903-1.178-5.343-1.892-5.494l-.065-.007zm2.28.432.023.05c.643 1.288 1.069 3.084 1.157 5.018h2.748a6.275 6.275 0 0 0 -3.929-5.068z">
+                        </path>
+                    </svg>
+                </div>
+                <button class="profile-btn-scroll">
+                    <div id="nav-pic">
+                        <div id="nav-pic__1">
+                            <svg id="nav-menu" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;">
+                                <g fill="none" fill-rule="nonzero">
+                                    <path d="m2 16h28"></path>
+                                    <path d="m2 24h28"></path>
+                                    <path d="m2 8h28"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div id="nav-pic__2">
+                            <svg id="nav-pro" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                role="presentation" focusable="false"
+                                style="display: block; height: 30px; width: 30px; fill: currentcolor;">
+                                <path
+                                    d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z">
+                                </path>
+                            </svg>
+                        </div>
+
+                    </div>
+                    <div class="nav-menu-js">
+                        <a href="#">Sign up</a>
+                        <a href="#">Log in</a>
+                        <a href="#">Host your home</a>
+                        <a href="#">Host an experience</a>
+                        <a href="#">Help</a>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="nav-search-main-scroll none">
+            <button class="btn-before">
+                <div class="nav-search-styles nss-1">
+                    <div id="li-after1">Location</div>
+                    <input placeholder="Where are you going"></input>
+                </div>
+            </button>
+            <button class="btn-before2">
+                <div class="nav-search-styles nss-2">
+                    <div id="li-after2">Check in</div>
+                    <div class="nss-s">Add dates</div>
+                </div>
+            </button>
+            <button class="btn-before3">
+                <div class="nav-search-styles nss-3">
+                    <div id="li-after3">Check out</div>
+                    <div class="nss-s">Add dates</div>
+                </div>
+            </button>
+            <button class="btn-before4">
+                <div class="nav-search-styles nss-4">
+                    <div name="btn4-title">Guests</br><span class="nss-s sp1">Add guests</span></div>
+                    <div>
+                        <div id="nav-search-svg-main">
+                            <svg id="search-svg-nav" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
+                                <g fill="none">
+                                    <path
+                                        d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </button>
+            <div class="location-js">
+                <div>
+                    <div>
+                        GO ANYWHERE, ANYTIME
+                    </div>
+                    <div>
+                        <button id="flex-btn-js">
+                            <div>
+                                <h1>I’m flexible</h1>
+                            </div>
+                            <div><video autoplay="" crossorigin="anonymous" playsinline=""
+                                    poster="https://a0.muscache.com/pictures/04c0a34f-9880-48b7-a69c-49011f602a35.jpg"
+                                    preload="auto" width="28" height="28" __idm_id__="642381826">
+                                    <source
+                                        src="https://a0.muscache.com/v/3d/fc/3dfc1c47-7bfb-5a3b-a969-ed42ae03c901/3dfc1c477bfb5a3ba969ed42ae03c901_200k_1.mp4?impolicy=low_quality"
+                                        type="video/mp4">
+                                </video></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="flexible-main">
+                <div>
+                    <div name="calendar-btn">Calendar</div>
+                    <div name="imflexible-btn" class="flexible-active flex-btn">I'm flexible</div>
+                </div>
+                <div class="flexible-open none">
+                    <div>Stay for a <span name="btn-names">weekend</span></div>
+                    <div>
+                        <div name="weekend" class="weekends flexible-btn-active">Weekend</div>
+                        <div name="week" class="weekends weekends-deactive">Week</div>
+                        <div name="month" class="weekends weekends-deactive">Month</div>
+                    </div>
+                    <div>Go in <span name="September">September</span><span class="months-deactive"
+                            name="v1">,</span><span name="October" class="months-deactive"> October</span><span
+                            class="months-deactive" name="v2">,</span><span name="November" class="months-deactive">
+                            November</span><span class="months-deactive" name="v3">,</span><span name="December"
+                            class="months-deactive">
+                            December</span><span class="months-deactive" name="v4">,</span><span name="January"
+                            class="months-deactive"> January</span><span class="months-deactive" name="v5">,</span><span
+                            name="February" class="months-deactive"> February</span>
+                    </div>
+                    <div class="months-list-main">
+                        <div class="months-list month-1 months-list-main-active">
+                            <img class="_9phhti months-img1"
+                                src="https://a0.muscache.com/pictures/33e22c88-92bf-47be-847a-98a7e374d78b.jpg" alt="">
+                            <div>September</div>
+                        </div>
+                        <div class="months-list month-2">
+                            <img class="_9phhti months-img2"
+                                src="https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg" alt="">
+                            <div>October</div>
+                        </div>
+                        <div class="months-list month-3">
+                            <img class="_9phhti months-img3"
+                                src="https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg" alt="">
+                            <div> November</div>
+                        </div>
+                        <div class="months-list month-4">
+                            <img class="_9phhti months-img4"
+                                src="https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg" alt="">
+                            <div>December</div>
+                        </div>
+                        <div class="months-list month-5">
+                            <img class="_9phhti months-img5"
+                                src="https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg" alt="">
+                            <div>January</div>
+                        </div>
+                        <div class="months-list month-6">
+                            <img class="_9phhti months-img6"
+                                src="https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg" alt="">
+                            <div>February</div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GUESTS -->
+            <div class="guests-popup none">
+                <div class="adults guest">
+                    <div class="guest-titles">
+                        <p>Adults</p>
+                        <span>Ages 13 or above</span>
+                    </div>
+                    <div class="guest-num">
+                        <span class="guest-num-span minus1 disable-num"><svg viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
+                                focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28"></path>
+                            </svg></span>
+                        <p class="start-num1">0</p>
+                        <span class="guest-num-span plus1"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28m-14-14v28"></path>
+                            </svg></span>
+
+                    </div>
+                </div>
+                <div class="children guest">
+                    <div class="guest-titles">
+                        <p>Children</p>
+                        <span>Ages 2–12</span>
+                    </div>
+                    <div class="guest-num">
+                        <span class="guest-num-span minus2 disable-num"><svg viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
+                                focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28"></path>
+                            </svg></span>
+                        <p class="start-num2">0</p>
+                        <span class="guest-num-span plus2"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28m-14-14v28"></path>
+                            </svg></span>
+
+                    </div>
+                </div>
+                <div class="infants guest">
+                    <div class="guest-titles">
+                        <p>Infants</p>
+                        <span>Under 2</span>
+                    </div>
+                    <div class="guest-num">
+                        <span class="guest-num-span minus3 disable-num"><svg viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
+                                focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28"></path>
+                            </svg></span>
+                        <p class="start-num3">0</p>
+                        <span class="guest-num-span plus3"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28m-14-14v28"></path>
+                            </svg></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-main">
+            <div id="nav-logo"><img src="images/download.svg" alt="AirBnB"></div>
+            <div id="nav-logo-1275"><svg width="30" height="32" fill="currentcolor" style="display:block">
+                    <path
+                        d="M29.24 22.68c-.16-.39-.31-.8-.47-1.15l-.74-1.67-.03-.03c-2.2-4.8-4.55-9.68-7.04-14.48l-.1-.2c-.25-.47-.5-.99-.76-1.47-.32-.57-.63-1.18-1.14-1.76a5.3 5.3 0 00-8.2 0c-.47.58-.82 1.19-1.14 1.76-.25.52-.5 1.03-.76 1.5l-.1.2c-2.45 4.8-4.84 9.68-7.04 14.48l-.06.06c-.22.52-.48 1.06-.73 1.64-.16.35-.32.73-.48 1.15a6.8 6.8 0 007.2 9.23 8.38 8.38 0 003.18-1.1c1.3-.73 2.55-1.79 3.95-3.32 1.4 1.53 2.68 2.59 3.95 3.33A8.38 8.38 0 0022.75 32a6.79 6.79 0 006.75-5.83 5.94 5.94 0 00-.26-3.5zm-14.36 1.66c-1.72-2.2-2.84-4.22-3.22-5.95a5.2 5.2 0 01-.1-1.96c.07-.51.26-.96.52-1.34.6-.87 1.65-1.41 2.8-1.41a3.3 3.3 0 012.8 1.4c.26.4.45.84.51 1.35.1.58.06 1.25-.1 1.96-.38 1.7-1.5 3.74-3.21 5.95zm12.74 1.48a4.76 4.76 0 01-2.9 3.75c-.76.32-1.6.41-2.42.32-.8-.1-1.6-.36-2.42-.84a15.64 15.64 0 01-3.63-3.1c2.1-2.6 3.37-4.97 3.85-7.08.23-1 .26-1.9.16-2.73a5.53 5.53 0 00-.86-2.2 5.36 5.36 0 00-4.49-2.28c-1.85 0-3.5.86-4.5 2.27a5.18 5.18 0 00-.85 2.21c-.13.84-.1 1.77.16 2.73.48 2.11 1.78 4.51 3.85 7.1a14.33 14.33 0 01-3.63 3.12c-.83.48-1.62.73-2.42.83a4.76 4.76 0 01-5.32-4.07c-.1-.8-.03-1.6.29-2.5.1-.32.25-.64.41-1.02.22-.52.48-1.06.73-1.6l.04-.07c2.16-4.77 4.52-9.64 6.97-14.41l.1-.2c.25-.48.5-.99.76-1.47.26-.51.54-1 .9-1.4a3.32 3.32 0 015.09 0c.35.4.64.89.9 1.4.25.48.5 1 .76 1.47l.1.2c2.44 4.77 4.8 9.64 7 14.41l.03.03c.26.52.48 1.1.73 1.6.16.39.32.7.42 1.03.19.9.29 1.7.19 2.5z">
+                    </path>
+                </svg></div>
+            <div id="nav-texts">
+                <div name="places-to-stay" class="nav-links nav-li1"><span>Places to stay</span></div>
+                <div name="expriences" class="nav-links nav-link-hover"><span>Experiences</span></div>
+                <div class="nav-links nav-link-hover2"><span>Online Experiences</span></div>
+            </div>
+            <div class="nav-pannel">
+                <div id="nav-tx"><span>Become a host</span></div>
+                <div id="nav-la"><img id="nav-la-img" src="images/download(4).svg" alt="la"></div>
+                <button id="profile-btn">
+                    <div id="nav-pic">
+                        <div id="nav-pic__1">
+                            <svg id="nav-menu" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;">
+                                <g fill="none" fill-rule="nonzero">
+                                    <path d="m2 16h28"></path>
+                                    <path d="m2 24h28"></path>
+                                    <path d="m2 8h28"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div id="nav-pic__2">
+                            <svg id="nav-pro" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                role="presentation" focusable="false"
+                                style="display: block; height: 30px; width: 30px; fill: currentcolor;">
+                                <path
+                                    d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z">
+                                </path>
+                            </svg>
+                        </div>
+
+                    </div>
+                    <div class="nav-menu-js">
+                        <a href="#">Sign up</a>
+                        <a href="#">Log in</a>
+                        <a href="#">Host your home</a>
+                        <a href="#">Host an experience</a>
+                        <a href="#">Help</a>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="nav-search-main">
+            <button class="btn-before">
+                <div class="nav-search-styles nss-1">
+                    <div id="li-after1">Location</div>
+                    <input placeholder="Where are you going"></input>
+                </div>
+            </button>
+            <button class="btn-before2">
+                <div class="nav-search-styles nss-2">
+                    <div id="li-after2">Check in</div>
+                    <div class="nss-s">Add dates</div>
+                </div>
+            </button>
+            <button class="btn-before3">
+                <div class="nav-search-styles nss-3">
+                    <div id="li-after3">Check out</div>
+                    <div class="nss-s">Add dates</div>
+                </div>
+            </button>
+            <button class="btn-before4">
+                <div class="nav-search-styles nss-4">
+                    <div name="btn4-title">Guests</br><span class="nss-s sp1">Add guests</span></div>
+                    <div>
+                        <div id="nav-search-svg-main">
+                            <svg id="search-svg-nav" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
+                                <g fill="none">
+                                    <path
+                                        d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </button>
+            <div class="location-js">
+                <div>
+                    <div>
+                        GO ANYWHERE, ANYTIME
+                    </div>
+                    <div>
+                        <button id="flex-btn-js">
+                            <div>
+                                <h1>I’m flexible</h1>
+                            </div>
+                            <div><video autoplay="" crossorigin="anonymous" playsinline=""
+                                    poster="https://a0.muscache.com/pictures/04c0a34f-9880-48b7-a69c-49011f602a35.jpg"
+                                    preload="auto" width="28" height="28" __idm_id__="642381826">
+                                    <source
+                                        src="https://a0.muscache.com/v/3d/fc/3dfc1c47-7bfb-5a3b-a969-ed42ae03c901/3dfc1c477bfb5a3ba969ed42ae03c901_200k_1.mp4?impolicy=low_quality"
+                                        type="video/mp4">
+                                </video></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="flexible-main">
+                <div>
+                    <div name="calendar-btn">Calendar</div>
+                    <div name="imflexible-btn" class="flexible-active flex-btn">I'm flexible</div>
+                </div>
+                <div class="flexible-open none">
+                    <div>Stay for a <span name="btn-names">weekend</span></div>
+                    <div>
+                        <div name="weekend" class="weekends flexible-btn-active">Weekend</div>
+                        <div name="week" class="weekends weekends-deactive">Week</div>
+                        <div name="month" class="weekends weekends-deactive">Month</div>
+                    </div>
+                    <div>Go in <span name="September">September</span><span class="months-deactive"
+                            name="v1">,</span><span name="October" class="months-deactive"> October</span><span
+                            class="months-deactive" name="v2">,</span><span name="November" class="months-deactive">
+                            November</span><span class="months-deactive" name="v3">,</span><span name="December"
+                            class="months-deactive">
+                            December</span><span class="months-deactive" name="v4">,</span><span name="January"
+                            class="months-deactive"> January</span><span class="months-deactive" name="v5">,</span><span
+                            name="February" class="months-deactive"> February</span>
+                    </div>
+                    <div class="months-list-main">
+                        <div class="months-list month-1 months-list-main-active">
+                            <img class="_9phhti months-img1"
+                                src="https://a0.muscache.com/pictures/33e22c88-92bf-47be-847a-98a7e374d78b.jpg" alt="">
+                            <div>September</div>
+                        </div>
+                        <div class="months-list month-2">
+                            <img class="_9phhti months-img2"
+                                src="https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg" alt="">
+                            <div>October</div>
+                        </div>
+                        <div class="months-list month-3">
+                            <img class="_9phhti months-img3"
+                                src="https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg" alt="">
+                            <div> November</div>
+                        </div>
+                        <div class="months-list month-4">
+                            <img class="_9phhti months-img4"
+                                src="https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg" alt="">
+                            <div>December</div>
+                        </div>
+                        <div class="months-list month-5">
+                            <img class="_9phhti months-img5"
+                                src="https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg" alt="">
+                            <div>January</div>
+                        </div>
+                        <div class="months-list month-6">
+                            <img class="_9phhti months-img6"
+                                src="https://a0.muscache.com/pictures/cf82c9bc-520a-4486-9be4-1f0927972381.jpg" alt="">
+                            <div>February</div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GUESTS -->
+            <div class="guests-popup none">
+                <div class="adults guest">
+                    <div class="guest-titles">
+                        <p>Adults</p>
+                        <span>Ages 13 or above</span>
+                    </div>
+                    <div class="guest-num">
+                        <span class="guest-num-span minus1_1 disable-num"><svg viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
+                                focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28"></path>
+                            </svg></span>
+                        <p class="start-num1_1">0</p>
+                        <span class="guest-num-span plus1_1"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28m-14-14v28"></path>
+                            </svg></span>
+
+                    </div>
+                </div>
+                <div class="children guest">
+                    <div class="guest-titles">
+                        <p>Children</p>
+                        <span>Ages 2–12</span>
+                    </div>
+                    <div class="guest-num">
+                        <span class="guest-num-span minus2_2 disable-num"><svg viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
+                                focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28"></path>
+                            </svg></span>
+                        <p class="start-num2_2">0</p>
+                        <span class="guest-num-span plus2_2"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28m-14-14v28"></path>
+                            </svg></span>
+
+                    </div>
+                </div>
+                <div class="infants guest">
+                    <div class="guest-titles">
+                        <p>Infants</p>
+                        <span>Under 2</span>
+                    </div>
+                    <div class="guest-num">
+                        <span class="guest-num-span minus3_3 disable-num"><svg viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
+                                focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28"></path>
+                            </svg></span>
+                        <p class="start-num3_3">0</p>
+                        <span class="guest-num-span plus3_3"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                <path d="m2 16h28m-14-14v28"></path>
+                            </svg></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="nav-btn-main">
+            <div>Not sure where to go? Perfect.</div>
+            <div>
+                <button id="flex-btn">
+                    <h1>I’m flexible</h1>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- section 1 starts -->
+        <section class="section-1-explore">
+            <h2 class="explore-title">Explore nearby</h2>
+            <div class="explore-flex">
+                <div class="explore-item ">
+                    <div>
+                        <img src="images/amsterdam.webp" alt="amsterdam">
+                    </div>
+                    <div class="item-text">
+                        <p>Amsterdam</p>
+                        <span>15 minute drive</span>
+                    </div>
+                </div>
+                <div class="explore-item">
+                    <div>
+                        <img src="images/thehauge.webp" alt="the-hauge">
+                    </div>
+                    <div class="item-text">
+                        <p>The Hague</p>
+                        <span>1.5 hour drive</span>
+                    </div>
+                </div>
+                <div class="explore-item">
+                    <div>
+                        <img src="images/rotterdam.webp" alt="rotterdam">
+                    </div>
+                    <div class="item-text">
+                        <p>Rotterdam</p>
+                        <span>1.5 hour drive</span>
+                    </div>
+                </div>
+                <div class="explore-item">
+                    <div>
+                        <img src="images/utrecht.webp" alt="utrecht">
+                    </div>
+                    <div class="item-text">
+                        <p>Utrecht</p>
+                        <span>45 minute drive</span>
+                    </div>
+                </div>
+                <div class="explore-item">
+                    <div>
+                        <img src="images/groningen.webp" alt="groningen">
+                    </div>
+                    <div class="item-text">
+                        <p>Groningen</p>
+                        <span>2.5 hour drive</span>
+                    </div>
+                </div>
+                <div class="explore-item">
+                    <div>
+                        <img src="images/zandvoort.webp" alt="zandvoort">
+                    </div>
+                    <div class="item-text">
+                        <p>Zandvoort</p>
+                        <span>45 minute drive</span>
+                    </div>
+                </div>
+                <div class="explore-item">
+                    <div>
+                        <img src="images/haarlem.webp" alt="haarlem">
+                    </div>
+                    <div class="item-text">
+                        <p>Haarlem</p>
+                        <span>30 minute drive</span>
+                    </div>
+                </div>
+                <div class="explore-item">
+                    <div>
+                        <img src="images/maastricht.webp" alt="maastricht">
+                    </div>
+                    <div class="item-text">
+                        <p>Maastricht</p>
+                        <span>3 hour drive</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-1-live-anywhere">
+            <h2 class="live-title">Live anywhere</h2>
+            <div class="live-flex">
+                <div class="live-item">
+                    <img src="images/outdoor.jpg" alt="Outdoor getaways">
+                    <p>Outdoor getaways</p>
+                </div>
+                <div class="live-item">
+                    <img src="images/unique.jpg" alt="Unique stays">
+                    <p>Unique stays</p>
+                </div>
+                <div class="live-item">
+                    <img src="images/entire.jpg" alt="Entire homes">
+                    <p>Entire homes</p>
+                </div>
+                <div class="live-item">
+                    <img src="images/pets.jpg" alt="Pets allowed">
+                    <p>Pets allowed</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div>
+                <div id="sec2-p1-main">
+                    <div id="p1__main">
+                        <h2>Try hosting</h2>
+                        <p>Earn extra income and unlock new opportunities by sharing your space.</p>
+                        <button>Learn more</button>
+                    </div>
+                </div>
+                <div>
+                    <h2 id="sec2-p2-h2">Discover things to do</h2>
+                </div>
+                <div id="sec2-p2-main">
+                    <div>
+                        <div>
+                            <img class="sec2-p2-img" src="images/56dc3b0e-10dc-4410-bacd-fb6293b19264.webp">
+                        </div>
+                        <div>
+                            <p class="sec2-p2-p">Experiences</p>
+                            <span class="sec2-p2-sp">Find unforgettable activities near you.</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img class="sec2-p2-img margin-img" src="images/0ce799cb-7553-4369-be9e-d0011e0ef636.jpg">
+                        </div>
+                        <div>
+                            <p class="sec2-p2-p">Online Experiences</p>
+                            <span class="sec2-p2-sp">Live, interactive activities led by Hosts.</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img class="sec2-p2-img margin-img" src="images/247a1ea3-946d-4eb8-a6ab-e8b9a66846f4.webp">
+                        </div>
+                        <div>
+                            <p class="sec2-p2-p">Featured collection: Wanderlust</p>
+                            <span class="sec2-p2-sp">Travel from home with Online Experiences.</span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+        <section>
+
+        </section>
+        <!------Inspiration for future getaways --------->
+        <section class="section-3-gateways">
+            <h2>Inspiration for future getaways</h2>
+            <div class="inspiration-titles">
+                <div class="title-1 selected-navigation-button">
+                    <button>Destinations for arts & culture</button>
+
+                </div>
+                <div class="title-2">
+                    <button>Destinations for outdoor adventure</button>
+                </div>
+                <div class="title-3">
+                    <button>Mountain cabins</button>
+                </div>
+                <div class="title-4">
+                    <button>Beach destinations</button>
+                </div>
+                <div class="title-5">
+                    <button>Popular destinations</button>
+                </div>
+                <div class="title-6">
+                    <button>Unique Stays</button>
+                </div>
+            </div>
+            <div class="art-culture-links">
+                <div class="col">
+                    <div>
+                        <p>Phoenix</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>San Francisco</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Keswick</p>
+                        <span>England</span>
+                    </div>
+                    <div>
+                        <p>York</p>
+                        <span>England</span>
+                    </div>
+                    <div>
+                        <p>Dublin</p>
+                        <span>Ireland</span>
+                    </div>
+                    <div>
+                        <p>Grande Isle</p>
+                        <span>Louisiana</span>
+                    </div>
+                    <div>
+                        <p>Duluth</p>
+                        <span>Minnesota</span>
+                    </div>
+                    <div>
+                        <p>Inverness</p>
+                        <span>Scotland</span>
+                    </div>
+                    <div>
+                        <p>Nashville</p>
+                        <span>Tennessee</span>
+                    </div>
+                    <div>
+                        <p>Edinburgh</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Lake Anna</p>
+                        <span>Virginia</span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div>
+                        <p>Hot Springs</p>
+                        <span>Arkansas</span>
+                    </div>
+                    <div>
+                        <p>Barcelona</p>
+                        <span>Catalonia</span>
+                    </div>
+                    <div>
+                        <p>London</p>
+                        <span>England</span>
+                    </div>
+                    <div>
+                        <p>Paris</p>
+                        <span>France</span>
+                    </div>
+                    <div>
+                        <p>Florence</p>
+                        <span>Italy</span>
+                    </div>
+                    <div>
+                        <p>New Orleans</p>
+                        <span>Louisiana</span>
+                    </div>
+                    <div>
+                        <p>Amsterdam</p>
+                        <span>Netherlands</span>
+                    </div>
+                    <div>
+                        <p>Malaga</p>
+                        <span>Spain</span>
+                    </div>
+                    <div>
+                        <p>Austin</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Liverpool</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Leavenworth</p>
+                        <span>Washington</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Los Angeles</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Prague</p>
+                        <span>Czechia</span>
+                    </div>
+                    <div>
+                        <p>Scarborough</p>
+                        <span>England</span>
+                    </div>
+                    <div>
+                        <p>Rhodes</p>
+                        <span>Greece</span>
+                    </div>
+                    <div>
+                        <p>Rome</p>
+                        <span>Italy</span>
+                    </div>
+                    <div>
+                        <p>Marthas Vineyard</p>
+                        <span>Massachusetts</span>
+                    </div>
+                    <div>
+                        <p>New York</p>
+                        <span>New York</span>
+                    </div>
+                    <div>
+                        <p>Valencia</p>
+                        <span>Spain</span>
+                    </div>
+                    <div>
+                        <p>Houston</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>St Ives</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Seattle</p>
+                        <span>Washington</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>San Diego</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Washington</p>
+                        <span>District of Columbia</span>
+                    </div>
+                    <div>
+                        <p>Sherwood Forest</p>
+                        <span>England</span>
+                    </div>
+                    <div>
+                        <p>Nashville</p>
+                        <span>Indiana</span>
+                    </div>
+                    <div>
+                        <p>Lisbon</p>
+                        <span>Lisbon</span>
+                    </div>
+                    <div>
+                        <p>South Haven</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>Nice</p>
+                        <span>Provence-Alpes-Côte d'Azur</span>
+                    </div>
+                    <div>
+                        <p>Split</p>
+                        <span>Split-Dalmatia County</span>
+                    </div>
+                    <div>
+                        <p>Darthmouth</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Lake Powell</p>
+                        <span>United States</span>
+                    </div>
+                </div>
+            </div>
+            <div class="outdoor-links none">
+                <div class="col">
+                    <div>
+                        <p>Lake Martin</p>
+                        <span>Alabama</span>
+                    </div>
+                    <div>
+                        <p>San Lake Havasu City</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Pinetop-Lakeside</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Emerald Lake</p>
+                        <span>British Columbia</span>
+                    </div>
+                    <div>
+                        <p>Mammoth Lakes</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Cultus Lake</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>The Blue Mountains</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Castle Hill</p>
+                        <span>Canterbury</span>
+                    </div>
+                    <div>
+                        <p>Durango</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Vail</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Cape Coral</p>
+                        <span>Florida</span>
+                    </div>
+                    <div>
+                        <p>Corfu</p>
+                        <span>Greece</span>
+                    </div>
+                    <div>
+                        <p>Lake Cumberland</p>
+                        <span>Kentucky</span>
+                    </div>
+                    <div>
+                        <p>Lake Michigan Beach</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>Upper Peninsula of Michigan</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>West Yellowstone</p>
+                        <span>Montana</span>
+                    </div>
+                    <div>
+                        <p>Bellingen</p>
+                        <span>New South Wales</span>
+                    </div>
+                    <div>
+                        <p>Niagara Falls</p>
+                        <span>New York</span>
+                    </div>
+                    <div>
+                        <p>Lake Gaston</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Mountain</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Turner Falls</p>
+                        <span>Oklahoma</span>
+                    </div>
+                    <div>
+                        <p>Bend</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Lake Harmony</p>
+                        <span>Pennsylvania</span>
+                    </div>
+                    <div>
+                        <p>Isle of Mull</p>
+                        <span>Scotland</span>
+                    </div>
+                    <div>
+                        <p>Big Bend National Park</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Betws-y-Coed</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Port Isaac</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Inverloch</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Wilsons Promontory</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Lake Chelan</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Skamania</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Yellowstone National Park</p>
+                        <span>Wyoming</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Banff</p>
+                        <span>Alberta</span>
+                    </div>
+                    <div>
+                        <p>Lake Powell</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Red Rock</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Vancouver Island</p>
+                        <span>British Columbia</span>
+                    </div>
+                    <div>
+                        <p>Palm Desert</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Georgian Bay</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>West Kelowna</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Aspen</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Estes Park</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Winter Park</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Blue Ridge</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>McCall</p>
+                        <span>Idaho</span>
+                    </div>
+                    <div>
+                        <p>Portland</p>
+                        <span>Maine</span>
+                    </div>
+                    <div>
+                        <p>Lakeside</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>Branson</p>
+                        <span>Missouri</span>
+                    </div>
+                    <div>
+                        <p>Mount Charleston</p>
+                        <span>Nevada</span>
+                    </div>
+                    <div>
+                        <p>Brunswick Heads</p>
+                        <span>New South Wales</span>
+                    </div>
+                    <div>
+                        <p>Bald Head Island
+                        </p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Lake Lure</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Oak Island</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Algonquin Park</p>
+                        <span>Ontario</span>
+                    </div>
+                    <div>
+                        <p>Crater Lake</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Mount Pocono</p>
+                        <span>Pennsylvania</span>
+                    </div>
+                    <div>
+                        <p>Robe</p>
+                        <span>South Australia</span>
+                    </div>
+                    <div>
+                        <p>Canyon Lake</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Filey</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Moab</p>
+                        <span>Utah</span>
+                    </div>
+                    <div>
+                        <p>Metung</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Shenandoah</p>
+                        <span>Virginia</span>
+                    </div>
+                    <div>
+                        <p>Lake Crescent</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Snowshoe</p>
+                        <span>West Virginia</span>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Nerja</p>
+                        <span>Andalucía</span>
+                    </div>
+                    <div>
+                        <p>North Rim</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Dinner Plain</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Victoria</p>
+                        <span>British Columbia</span>
+                    </div>
+                    <div>
+                        <p>Shaver Lake</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Manitoulin Island</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Gran Canaria</p>
+                        <span>Canary Islands</span>
+                    </div>
+                    <div>
+                        <p>Colorado Springs</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Grand Lake</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Salcombe</p>
+                        <span>England</span>
+                    </div>
+                    <div>
+                        <p>Jekyll Island</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>Clear Lake</p>
+                        <span>Iowa</span>
+                    </div>
+                    <div>
+                        <p>South Portland</p>
+                        <span>Maine</span>
+                    </div>
+                    <div>
+                        <p>Torch Lake</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>Lake of the Ozarks</p>
+                        <span>Missouri</span>
+                    </div>
+                    <div>
+                        <p>Cloudcroft</p>
+                        <span>New Mexico</span>
+                    </div>
+                    <div>
+                        <p>Adirondack Mountains</p>
+                        <span>New York</span>
+                    </div>
+                    <div>
+                        <p>Bryson City</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Lake Norman of Catawba</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Geneva-on-the-Lake</p>
+                        <span>Ohio</span>
+                    </div>
+                    <div>
+                        <p>Muskoka Lakes</p>
+                        <span>Ontario</span>
+                    </div>
+                    <div>
+                        <p>Northern Oregon Coast Range</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Mont-Tremblant</p>
+                        <span>Quebec</span>
+                    </div>
+                    <div>
+                        <p>Robe</p>
+                        <span>South Australia</span>
+                    </div>
+                    <div>
+                        <p>Lake Austin</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Fort Williams</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Mount Zion</p>
+                        <span>Utah</span>
+                    </div>
+                    <div>
+                        <p>Mount Buller</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Smith Mountain Lake</p>
+                        <span>Virginia</span>
+                    </div>
+                    <div>
+                        <p>Lake Quinault</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Lake Geneva</p>
+                        <span>Wisconsin</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Greer</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Payson</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Streaky Bay</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Idyllwild-Pine Cove</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>South Lake Tahoe</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Ottawa River</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Lanzarote</p>
+                        <span>Canary Islands</span>
+                    </div>
+                    <div>
+                        <p>Denver</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Keystone</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Swanage</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>Lake Lanier</p>
+                        <span>Iowa</span>
+                    </div>
+                    <div>
+                        <p>Lough Eske</p>
+                        <span>Ireland</span>
+                    </div>
+                    <div>
+                        <p>Deep Creek Lake</p>
+                        <span>Maryland</span>
+                    </div>
+                    <div>
+                        <p>Traverse City</p>
+                        <span>Missouri</span>
+                    </div>
+                    <div>
+                        <p>Big Sky</p>
+                        <span>Montana</span>
+                    </div>
+                    <div>
+                        <p>Red River</p>
+                        <span>New Mexico</span>
+                    </div>
+                    <div>
+                        <p>Lake Placid</p>
+                        <span>New York</span>
+                    </div>
+                    <div>
+                        <p>Emerald Isle</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Mount Airy</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Medicine Park</p>
+                        <span>Oklahoma</span>
+                    </div>
+                    <div>
+                        <p>Tobermory</p>
+                        <span>Ontario</span>
+                    </div>
+                    <div>
+                        <p>Sunriver</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Aviemore</p>
+                        <span>Scotland</span>
+                    </div>
+                    <div>
+                        <p>St Helens</p>
+                        <span>South Australia</span>
+                    </div>
+                    <div>
+                        <p>Lake Buchanan</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Loch Lomond</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Moraira</p>
+                        <span>Utah</span>
+                    </div>
+                    <div>
+                        <p>Port Campbell</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Snowdon</p>
+                        <span>Virginia</span>
+                    </div>
+                    <div>
+                        <p>Quinault</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Wisconsin Dells</p>
+                        <span>Wisconsin</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mountain-cabins-links none">
+                <div class="col">
+                    <div>
+                        <p>Mentone</p>
+                        <span>Alabama</span>
+                    </div>
+                    <div>
+                        <p>Stone Mountain</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>Blowing Rock</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Townsend</p>
+                        <span>Tennessee</span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div>
+                        <p>Sedona</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Island Park</p>
+                        <span>Idaho</span>
+                    </div>
+                    <div>
+                        <p>Boone</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Wears Valley</p>
+                        <span>Tennessee</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Helen</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>Blue Mountains</p>
+                        <span>New South Wales</span>
+                    </div>
+                    <div>
+                        <p>Hochatown</p>
+                        <span>Oklahoma</span>
+                    </div>
+                    <div>
+                        <p>Cabins</p>
+                        <span>West Virginia</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Pine Mountain</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>Asheville</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Pigeon Forge</p>
+                        <span>Tennessee</span>
+                    </div>
+                </div>
+            </div>
+            <div class="beach-links none">
+                <div class="col">
+                    <div>
+                        <p>Dauphin Island</p>
+                        <span>Alabama</span>
+                    </div>
+                    <div>
+                        <p>Crescent Head</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Pinetop-Lakeside</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Emerald Lake</p>
+                        <span>British Columbia</span>
+                    </div>
+                    <div>
+                        <p>Mammoth Lakes</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Cultus Lake</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>The Blue Mountains</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Castle Hill</p>
+                        <span>Canterbury</span>
+                    </div>
+                    <div>
+                        <p>Durango</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Vail</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Cape Coral</p>
+                        <span>Florida</span>
+                    </div>
+                    <div>
+                        <p>Corfu</p>
+                        <span>Greece</span>
+                    </div>
+                    <div>
+                        <p>Lake Cumberland</p>
+                        <span>Kentucky</span>
+                    </div>
+                    <div>
+                        <p>Lake Michigan Beach</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>Upper Peninsula of Michigan</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>West Yellowstone</p>
+                        <span>Montana</span>
+                    </div>
+                    <div>
+                        <p>Bellingen</p>
+                        <span>New South Wales</span>
+                    </div>
+                    <div>
+                        <p>Niagara Falls</p>
+                        <span>New York</span>
+                    </div>
+                    <div>
+                        <p>Lake Gaston</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Mountain</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Turner Falls</p>
+                        <span>Oklahoma</span>
+                    </div>
+                    <div>
+                        <p>Bend</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Lake Harmony</p>
+                        <span>Pennsylvania</span>
+                    </div>
+                    <div>
+                        <p>Isle of Mull</p>
+                        <span>Scotland</span>
+                    </div>
+                    <div>
+                        <p>Big Bend National Park</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Betws-y-Coed</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Port Isaac</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Inverloch</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Wilsons Promontory</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Lake Chelan</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Skamania</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Yellowstone National Park</p>
+                        <span>Wyoming</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Fort Morgan</p>
+                        <span>Alabama</span>
+                    </div>
+                    <div>
+                        <p>Gerringong</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Moonta Bay</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Bodega Bay</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Palm Desert</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Georgian Bay</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>West Kelowna</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Aspen</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Estes Park</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Winter Park</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Blue Ridge</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>McCall</p>
+                        <span>Idaho</span>
+                    </div>
+                    <div>
+                        <p>Portland</p>
+                        <span>Maine</span>
+                    </div>
+                    <div>
+                        <p>Lakeside</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>Branson</p>
+                        <span>Missouri</span>
+                    </div>
+                    <div>
+                        <p>Mount Charleston</p>
+                        <span>Nevada</span>
+                    </div>
+                    <div>
+                        <p>Brunswick Heads</p>
+                        <span>New South Wales</span>
+                    </div>
+                    <div>
+                        <p>Bald Head Island
+                        </p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Lake Lure</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Oak Island</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Algonquin Park</p>
+                        <span>Ontario</span>
+                    </div>
+                    <div>
+                        <p>Crater Lake</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Mount Pocono</p>
+                        <span>Pennsylvania</span>
+                    </div>
+                    <div>
+                        <p>Robe</p>
+                        <span>South Australia</span>
+                    </div>
+                    <div>
+                        <p>Canyon Lake</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Filey</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Moab</p>
+                        <span>Utah</span>
+                    </div>
+                    <div>
+                        <p>Metung</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Shenandoah</p>
+                        <span>Virginia</span>
+                    </div>
+                    <div>
+                        <p>Lake Crescent</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Snowshoe</p>
+                        <span>West Virginia</span>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Gulf Shores</p>
+                        <span>Alabama</span>
+                    </div>
+                    <div>
+                        <p>Hamilton Island</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Ocean Grove</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Cambria</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Shaver Lake</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Manitoulin Island</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Gran Canaria</p>
+                        <span>Canary Islands</span>
+                    </div>
+                    <div>
+                        <p>Colorado Springs</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Grand Lake</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Salcombe</p>
+                        <span>England</span>
+                    </div>
+                    <div>
+                        <p>Jekyll Island</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>Clear Lake</p>
+                        <span>Iowa</span>
+                    </div>
+                    <div>
+                        <p>South Portland</p>
+                        <span>Maine</span>
+                    </div>
+                    <div>
+                        <p>Torch Lake</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>Lake of the Ozarks</p>
+                        <span>Missouri</span>
+                    </div>
+                    <div>
+                        <p>Cloudcroft</p>
+                        <span>New Mexico</span>
+                    </div>
+                    <div>
+                        <p>Adirondack Mountains</p>
+                        <span>New York</span>
+                    </div>
+                    <div>
+                        <p>Bryson City</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Lake Norman of Catawba</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Geneva-on-the-Lake</p>
+                        <span>Ohio</span>
+                    </div>
+                    <div>
+                        <p>Muskoka Lakes</p>
+                        <span>Ontario</span>
+                    </div>
+                    <div>
+                        <p>Northern Oregon Coast Range</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Mont-Tremblant</p>
+                        <span>Quebec</span>
+                    </div>
+                    <div>
+                        <p>Robe</p>
+                        <span>South Australia</span>
+                    </div>
+                    <div>
+                        <p>Lake Austin</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Fort Williams</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Mount Zion</p>
+                        <span>Utah</span>
+                    </div>
+                    <div>
+                        <p>Mount Buller</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Smith Mountain Lake</p>
+                        <span>Virginia</span>
+                    </div>
+                    <div>
+                        <p>Lake Quinault</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Lake Geneva</p>
+                        <span>Wisconsin</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Bruny Island</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Lancelin</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Majorca</p>
+                        <span>Balearic Islands</span>
+                    </div>
+                    <div>
+                        <p>Cayucos</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Long Beach</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Ottawa River</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Lanzarote</p>
+                        <span>Canary Islands</span>
+                    </div>
+                    <div>
+                        <p>Denver</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Keystone</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Swanage</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>Lake Lanier</p>
+                        <span>Iowa</span>
+                    </div>
+                    <div>
+                        <p>Lough Eske</p>
+                        <span>Ireland</span>
+                    </div>
+                    <div>
+                        <p>Deep Creek Lake</p>
+                        <span>Maryland</span>
+                    </div>
+                    <div>
+                        <p>Traverse City</p>
+                        <span>Missouri</span>
+                    </div>
+                    <div>
+                        <p>Big Sky</p>
+                        <span>Montana</span>
+                    </div>
+                    <div>
+                        <p>Red River</p>
+                        <span>New Mexico</span>
+                    </div>
+                    <div>
+                        <p>Lake Placid</p>
+                        <span>New York</span>
+                    </div>
+                    <div>
+                        <p>Emerald Isle</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Mount Airy</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Medicine Park</p>
+                        <span>Oklahoma</span>
+                    </div>
+                    <div>
+                        <p>Tobermory</p>
+                        <span>Ontario</span>
+                    </div>
+                    <div>
+                        <p>Sunriver</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Aviemore</p>
+                        <span>Scotland</span>
+                    </div>
+                    <div>
+                        <p>St Helens</p>
+                        <span>South Australia</span>
+                    </div>
+                    <div>
+                        <p>Lake Buchanan</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Loch Lomond</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Moraira</p>
+                        <span>Utah</span>
+                    </div>
+                    <div>
+                        <p>Port Campbell</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Snowdon</p>
+                        <span>Virginia</span>
+                    </div>
+                    <div>
+                        <p>Quinault</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Wisconsin Dells</p>
+                        <span>Wisconsin</span>
+                    </div>
+                </div>
+            </div>
+            <div class="popular-links none ">
+                <div class="col">
+                    <div>
+                        <p>Canmore</p>
+                        <span>Alberta</span>
+                    </div>
+                    <div>
+                        <p>Prescott</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Mountain View</p>
+                        <span>Arkansas</span>
+                    </div>
+                    <div>
+                        <p>Anaheim</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Sonoma</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Cultus Lake</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>The Blue Mountains</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Castle Hill</p>
+                        <span>Canterbury</span>
+                    </div>
+                    <div>
+                        <p>Durango</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Vail</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Cape Coral</p>
+                        <span>Florida</span>
+                    </div>
+                    <div>
+                        <p>Corfu</p>
+                        <span>Greece</span>
+                    </div>
+                    <div>
+                        <p>Lake Cumberland</p>
+                        <span>Kentucky</span>
+                    </div>
+                    <div>
+                        <p>Lake Michigan Beach</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>Upper Peninsula of Michigan</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>West Yellowstone</p>
+                        <span>Montana</span>
+                    </div>
+                    <div>
+                        <p>Bellingen</p>
+                        <span>New South Wales</span>
+                    </div>
+                    <div>
+                        <p>Niagara Falls</p>
+                        <span>New York</span>
+                    </div>
+                    <div>
+                        <p>Lake Gaston</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Mountain</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Turner Falls</p>
+                        <span>Oklahoma</span>
+                    </div>
+                    <div>
+                        <p>Bend</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Lake Harmony</p>
+                        <span>Pennsylvania</span>
+                    </div>
+                    <div>
+                        <p>Isle of Mull</p>
+                        <span>Scotland</span>
+                    </div>
+                    <div>
+                        <p>Big Bend National Park</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Betws-y-Coed</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Port Isaac</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Inverloch</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Wilsons Promontory</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Lake Chelan</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Skamania</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Tenby</p>
+                        <span>Wales</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Benalmadena</p>
+                        <span>Andalusia</span>
+                    </div>
+                    <div>
+                        <p>Scottsdale</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Devonport</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Monterey</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>La Serena</p>
+                        <span>Coquimbo</span>
+                    </div>
+                    <div>
+                        <p>Bude</p>
+                        <span>England</span>
+                    </div>
+                    <div>
+                        <p>West Kelowna</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Aspen</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Estes Park</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Winter Park</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Blue Ridge</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>McCall</p>
+                        <span>Idaho</span>
+                    </div>
+                    <div>
+                        <p>Portland</p>
+                        <span>Maine</span>
+                    </div>
+                    <div>
+                        <p>Lakeside</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>Branson</p>
+                        <span>Missouri</span>
+                    </div>
+                    <div>
+                        <p>Mount Charleston</p>
+                        <span>Nevada</span>
+                    </div>
+                    <div>
+                        <p>Brunswick Heads</p>
+                        <span>New South Wales</span>
+                    </div>
+                    <div>
+                        <p>Bald Head Island
+                        </p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Lake Lure</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Oak Island</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Algonquin Park</p>
+                        <span>Ontario</span>
+                    </div>
+                    <div>
+                        <p>Crater Lake</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Mount Pocono</p>
+                        <span>Pennsylvania</span>
+                    </div>
+                    <div>
+                        <p>Robe</p>
+                        <span>South Australia</span>
+                    </div>
+                    <div>
+                        <p>Canyon Lake</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Filey</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Moab</p>
+                        <span>Utah</span>
+                    </div>
+                    <div>
+                        <p>Metung</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Shenandoah</p>
+                        <span>Virginia</span>
+                    </div>
+                    <div>
+                        <p>Lake Crescent</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Snowshoe</p>
+                        <span>West Virginia</span>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Marbella</p>
+                        <span>Andalusia</span>
+                    </div>
+                    <div>
+                        <p>Tucson</p>
+                        <span>Arizona</span>
+                    </div>
+                    <div>
+                        <p>Mallacoota</p>
+                        <span>Australia</span>
+                    </div>
+                    <div>
+                        <p>Paso Robles</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Shaver Lake</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Manitoulin Island</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Gran Canaria</p>
+                        <span>Canary Islands</span>
+                    </div>
+                    <div>
+                        <p>Colorado Springs</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Grand Lake</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Salcombe</p>
+                        <span>England</span>
+                    </div>
+                    <div>
+                        <p>Jekyll Island</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>Clear Lake</p>
+                        <span>Iowa</span>
+                    </div>
+                    <div>
+                        <p>South Portland</p>
+                        <span>Maine</span>
+                    </div>
+                    <div>
+                        <p>Torch Lake</p>
+                        <span>Michigan</span>
+                    </div>
+                    <div>
+                        <p>Lake of the Ozarks</p>
+                        <span>Missouri</span>
+                    </div>
+                    <div>
+                        <p>Cloudcroft</p>
+                        <span>New Mexico</span>
+                    </div>
+                    <div>
+                        <p>Adirondack Mountains</p>
+                        <span>New York</span>
+                    </div>
+                    <div>
+                        <p>Bryson City</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Lake Norman of Catawba</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Geneva-on-the-Lake</p>
+                        <span>Ohio</span>
+                    </div>
+                    <div>
+                        <p>Muskoka Lakes</p>
+                        <span>Ontario</span>
+                    </div>
+                    <div>
+                        <p>Northern Oregon Coast Range</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Mont-Tremblant</p>
+                        <span>Quebec</span>
+                    </div>
+                    <div>
+                        <p>Robe</p>
+                        <span>South Australia</span>
+                    </div>
+                    <div>
+                        <p>Lake Austin</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Fort Williams</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Mount Zion</p>
+                        <span>Utah</span>
+                    </div>
+                    <div>
+                        <p>Mount Buller</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Smith Mountain Lake</p>
+                        <span>Virginia</span>
+                    </div>
+                    <div>
+                        <p>Lake Quinault</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Lake Geneva</p>
+                        <span>Wisconsin</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Mijas</p>
+                        <span>Andalusia</span>
+                    </div>
+                    <div>
+                        <p>Jasper</p>
+                        <span>Arkansas</span>
+                    </div>
+                    <div>
+                        <p>Ibiza</p>
+                        <span>Balearic Islands</span>
+                    </div>
+                    <div>
+                        <p>Santa Barbara</p>
+                        <span>California</span>
+                    </div>
+                    <div>
+                        <p>Birmingham</p>
+                        <span>England</span>
+                    </div>
+                    <div>
+                        <p>Ottawa River</p>
+                        <span>Canada</span>
+                    </div>
+                    <div>
+                        <p>Lanzarote</p>
+                        <span>Canary Islands</span>
+                    </div>
+                    <div>
+                        <p>Denver</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Keystone</p>
+                        <span>Colorado</span>
+                    </div>
+                    <div>
+                        <p>Swanage</p>
+                        <span>Georgia</span>
+                    </div>
+                    <div>
+                        <p>Lake Lanier</p>
+                        <span>Iowa</span>
+                    </div>
+                    <div>
+                        <p>Lough Eske</p>
+                        <span>Ireland</span>
+                    </div>
+                    <div>
+                        <p>Deep Creek Lake</p>
+                        <span>Maryland</span>
+                    </div>
+                    <div>
+                        <p>Traverse City</p>
+                        <span>Missouri</span>
+                    </div>
+                    <div>
+                        <p>Big Sky</p>
+                        <span>Montana</span>
+                    </div>
+                    <div>
+                        <p>Red River</p>
+                        <span>New Mexico</span>
+                    </div>
+                    <div>
+                        <p>Lake Placid</p>
+                        <span>New York</span>
+                    </div>
+                    <div>
+                        <p>Emerald Isle</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Mount Airy</p>
+                        <span>North Carolina</span>
+                    </div>
+                    <div>
+                        <p>Medicine Park</p>
+                        <span>Oklahoma</span>
+                    </div>
+                    <div>
+                        <p>Tobermory</p>
+                        <span>Ontario</span>
+                    </div>
+                    <div>
+                        <p>Sunriver</p>
+                        <span>Oregon</span>
+                    </div>
+                    <div>
+                        <p>Aviemore</p>
+                        <span>Scotland</span>
+                    </div>
+                    <div>
+                        <p>St Helens</p>
+                        <span>South Australia</span>
+                    </div>
+                    <div>
+                        <p>Lake Buchanan</p>
+                        <span>Texas</span>
+                    </div>
+                    <div>
+                        <p>Loch Lomond</p>
+                        <span>United Kingdom</span>
+                    </div>
+                    <div>
+                        <p>Moraira</p>
+                        <span>Utah</span>
+                    </div>
+                    <div>
+                        <p>Port Campbell</p>
+                        <span>Victoria</span>
+                    </div>
+                    <div>
+                        <p>Snowdon</p>
+                        <span>Virginia</span>
+                    </div>
+                    <div>
+                        <p>Quinault</p>
+                        <span>Washington</span>
+                    </div>
+                    <div>
+                        <p>Wisconsin Dells</p>
+                        <span>Wisconsin</span>
+                    </div>
+                </div>
+            </div>
+            <div class="unique-links none">
+                <div class="col">
+                    <div>
+                        <p>Cabins</p>
+                        <span>United States</span>
+                    </div>
+                    <div>
+                        <p>Beach Houses</p>
+                        <span>United States</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Treehouses</p>
+                        <span>United States</span>
+                    </div>
+                    <div>
+                        <p>Campers and RVs</p>
+                        <span>United States</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Glamping</p>
+                        <span>United States</span>
+                    </div>
+                    <div>
+                        <p>Lakehouses</p>
+                        <span>United States</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <p>Tiny Houses</p>
+                        <span>United States</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <div id="footer-p1-main">
+                <ul>
+                    <li class="foot-p1-li"><a class="footer-li-h">ABOUT</a></li>
+                    <li class="foot-p1-li"><a href="#">How Airbnb works</a></li>
+                    <li class="foot-p1-li"><a href="#">Newsroom</a></li>
+                    <li class="foot-p1-li"><a href="#">Airbnb 2021</a></li>
+                    <li class="foot-p1-li"><a href="#">Investors</a></li>
+                    <li class="foot-p1-li"><a href="#">Airbnb Plus</a></li>
+                    <li class="foot-p1-li"><a href="#">Airbnb Luxe</a></li>
+                    <li class="foot-p1-li"><a href="#">HotelTonight</a></li>
+                    <li class="foot-p1-li"><a href="#">Airbnb for Work</a></li>
+                    <li class="foot-p1-li"><a href="#">Made possible by Hosts</a></li>
+                    <li class="foot-p1-li"><a href="#">Careers</a></li>
+                    <li class="foot-p1-li"><a href="#">Founders' Letter</a></li>
+                </ul>
+                <ul>
+                    <li class="foot-p1-li"><a class="footer-li-h">COMMUNITY</a></li>
+                    <li class="foot-p1-li"><a href="#">Diversity & Belonging</a></li>
+                    <li class="foot-p1-li"><a href="#">Against Discrimination</a></li>
+                    <li class="foot-p1-li"><a href="#">Accessibility</a></li>
+                    <li class="foot-p1-li"><a href="#">Airbnb Associates</a></li>
+                    <li class="foot-p1-li"><a href="#">Host Afghan refugees</a></li>
+                    <li class="foot-p1-li"><a href="#">Guest Referrals</a></li>
+                    <li class="foot-p1-li"><a href="#">Gift cards</a></li>
+                    <li class="foot-p1-li"><a href="#">Airbnb.org</a></li>
+                </ul>
+                <ul>
+                    <li class="foot-p1-li"><a class="footer-li-h">HOST</a></li>
+                    <li class="foot-p1-li"><a href="#">Host your home</a></li>
+                    <li class="foot-p1-li"><a href="#">Host an Online Experience</a></li>
+                    <li class="foot-p1-li"><a href="#">Host an Experience</a></li>
+                    <li class="foot-p1-li"><a href="#">Responsible hosting</a></li>
+                    <li class="foot-p1-li"><a href="#">Resource Center</a></li>
+                    <li class="foot-p1-li"><a href="#">Community Center</a></li>
+                </ul>
+                <ul>
+                    <li class="foot-p1-li"><a class="footer-li-h">SUPPORT</a></li>
+                    <li class="foot-p1-li"><a href="#">Our COVID-19 Response</a></li>
+                    <li class="foot-p1-li"><a href="#">Help Center</a></li>
+                    <li class="foot-p1-li"><a href="#">Cancellation options</a></li>
+                    <li class="foot-p1-li"><a href="#">Neighborhood Support</a></li>
+                    <li class="foot-p1-li"><a href="#">Trust & Safety</a></li>
+                </ul>
+            </div>
+            <div id="footer-p2-main">
+                <div>
+                    <span>© 2021 Airbnb, Inc.</span>
+                    <span class="space-dot">·</span>
+                    <a class="foot-links" href="">Privacy</a>
+                    <span class="space-dot">·</span>
+                    <a class="foot-links" href="">Terms</a>
+                    <span class="space-dot">·</span>
+                    <a class="foot-links" href="">Sitemap</a>
+                </div>
+                <div id="foot-p2-icon">
+                    <div>
+                        <button>
+                            <span>
+                                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                    role="presentation" focusable="false"
+                                    style="display: inline-block; height: 16px; width: 16px; fill: currentcolor;">
+                                    <path
+                                        d="m8.002.25a7.77 7.77 0 0 1 7.748 7.776 7.75 7.75 0 0 1 -7.521 7.72l-.246.004a7.75 7.75 0 0 1 -7.73-7.513l-.003-.245a7.75 7.75 0 0 1 7.752-7.742zm1.949 8.5h-3.903c.155 2.897 1.176 5.343 1.886 5.493l.068.007c.68-.002 1.72-2.365 1.932-5.23zm4.255 0h-2.752c-.091 1.96-.53 3.783-1.188 5.076a6.257 6.257 0 0 0 3.905-4.829zm-9.661 0h-2.75a6.257 6.257 0 0 0 3.934 5.075c-.615-1.208-1.036-2.875-1.162-4.686l-.022-.39zm1.188-6.576-.115.046a6.257 6.257 0 0 0 -3.823 5.03h2.75c.085-1.83.471-3.54 1.059-4.81zm2.262-.424c-.702.002-1.784 2.512-1.947 5.5h3.904c-.156-2.903-1.178-5.343-1.892-5.494l-.065-.007zm2.28.432.023.05c.643 1.288 1.069 3.084 1.157 5.018h2.748a6.275 6.275 0 0 0 -3.929-5.068z">
+                                    </path>
+                                </svg>
+                            </span>
+                            English(US)
+                        </button>
+                        <button name="pricelist"><span>$</span><span>USD</span></button>
+                    </div>
+                    <div>
+                        <a href="#"><svg viewBox="0 0 32 32" role="img" aria-hidden="false"
+                                aria-label="Navigate to Facebook" focusable="false"
+                                style="height: 18px; width: 18px; display: block; fill: currentcolor;">
+                                <path
+                                    d="m8 14.41v-4.17c0-.42.35-.81.77-.81h2.52v-2.08c0-4.84 2.48-7.31 7.42-7.35 1.65 0 3.22.21 4.69.64.46.14.63.42.6.88l-.56 4.06c-.04.18-.14.35-.32.53-.21.11-.42.18-.63.14-.88-.25-1.78-.35-2.8-.35-1.4 0-1.61.28-1.61 1.73v1.8h4.52c.42 0 .81.42.81.88l-.35 4.17c0 .42-.35.71-.77.71h-4.21v16c0 .42-.35.81-.77.81h-5.21c-.42 0-.8-.39-.8-.81v-16h-2.52a.78.78 0 0 1 -.78-.78"
+                                    fill-rule="evenodd"></path>
+                            </svg></a>
+                        <a href="#"><svg viewBox="0 0 32 32" role="img" aria-hidden="false"
+                                aria-label="Navigate to Twitter" focusable="false"
+                                style="height: 18px; width: 18px; display: block; fill: currentcolor;">
+                                <path
+                                    d="m31 6.36c-1.16.49-2.32.82-3.55.95 1.29-.76 2.22-1.87 2.72-3.38a13.05 13.05 0 0 1 -3.91 1.51c-1.23-1.28-2.75-1.94-4.51-1.94-3.41 0-6.17 2.73-6.17 6.12 0 .49.07.95.17 1.38-4.94-.23-9.51-2.6-12.66-6.38-.56.95-.86 1.97-.86 3.09 0 2.07 1.03 3.91 2.75 5.06-1-.03-1.92-.3-2.82-.76v.07c0 2.89 2.12 5.42 4.94 5.98-.63.17-1.16.23-1.62.23-.3 0-.7-.03-1.13-.13a6.07 6.07 0 0 0 5.74 4.24c-2.22 1.74-4.78 2.63-7.66 2.63-.56 0-1.06-.03-1.43-.1 2.85 1.84 6 2.76 9.41 2.76 7.29 0 12.83-4.01 15.51-9.3 1.36-2.66 2.02-5.36 2.02-8.09v-.46c-.03-.17-.03-.3-.03-.33a12.66 12.66 0 0 0 3.09-3.16"
+                                    fill-rule="evenodd"></path>
+                            </svg></a>
+                        <a href="#"><svg viewBox="0 0 24 24" role="img" aria-hidden="false"
+                                aria-label="Navigate to Instagram" focusable="false"
+                                style="height: 18px; width: 18px; display: block; fill: currentcolor;">
+                                <path
+                                    d="m23.09.91c-.61-.61-1.33-.91-2.17-.91h-17.84c-.85 0-1.57.3-2.17.91s-.91 1.33-.91 2.17v17.84c0 .85.3 1.57.91 2.17s1.33.91 2.17.91h17.84c.85 0 1.57-.3 2.17-.91s.91-1.33.91-2.17v-17.84c0-.85-.3-1.57-.91-2.17zm-14.48 7.74c.94-.91 2.08-1.37 3.4-1.37 1.33 0 2.47.46 3.41 1.37s1.41 2.01 1.41 3.3-.47 2.39-1.41 3.3-2.08 1.37-3.41 1.37c-1.32 0-2.46-.46-3.4-1.37s-1.41-2.01-1.41-3.3.47-2.39 1.41-3.3zm12.66 11.63c0 .27-.09.5-.28.68a.92.92 0 0 1 -.67.28h-16.7a.93.93 0 0 1 -.68-.28.92.92 0 0 1 -.27-.68v-10.13h2.2a6.74 6.74 0 0 0 -.31 2.05c0 2 .73 3.71 2.19 5.12s3.21 2.12 5.27 2.12a7.5 7.5 0 0 0 3.75-.97 7.29 7.29 0 0 0 2.72-2.63 6.93 6.93 0 0 0 1-3.63c0-.71-.11-1.39-.31-2.05h2.11v10.12zm0-13.95c0 .3-.11.56-.31.77a1.05 1.05 0 0 1 -.77.31h-2.72c-.3 0-.56-.11-.77-.31a1.05 1.05 0 0 1 -.31-.77v-2.58c0-.29.11-.54.31-.76s.47-.32.77-.32h2.72c.3 0 .56.11.77.32s.31.47.31.76z"
+                                    fill-rule="evenodd"></path>
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="price-list">
+        <div>
+            <svg name="closebtn-p" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                role="presentation" focusable="false"
+                style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;">
+                <path d="m6 6 20 20"></path>
+                <path d="m26 6-20 20"></path>
+            </svg>
+        </div>
+        <h3>Choose a currency</h3>
+        <div id="price-list__main">
+            <div>
+                <ul>
+                    <li id="price-li-border" class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                    <li class="price-list__li">
+                        <div>
+                            <h6>United States dollar</h6>
+                            <p>USD - $</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+
+</html>
